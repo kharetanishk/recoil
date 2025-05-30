@@ -1,5 +1,11 @@
 import { RecoilRoot, useRecoilState, useRecoilValue } from "recoil";
-import { jobsAtom, messageAtom, networkAtom, notificationAtom } from "./atoms";
+import {
+  jobsAtom,
+  messageAtom,
+  networkAtom,
+  notificationAtom,
+  totalpopupselector,
+} from "./atoms";
 
 function App() {
   return (
@@ -13,6 +19,7 @@ function Mainapp() {
   const jobsCount = useRecoilValue(jobsAtom);
   const notifcationCount = useRecoilValue(notificationAtom);
   const [messageCount, setmessageCount] = useRecoilState(messageAtom);
+  const totalnotificationcount = useRecoilValue(totalpopupselector);
   return (
     <>
       <button>
@@ -31,6 +38,8 @@ function Mainapp() {
       >
         Increment the message
       </button>
+
+      <button>Avatar ({totalnotificationcount})</button>
     </>
   );
 }
