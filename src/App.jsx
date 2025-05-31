@@ -4,6 +4,8 @@ import {
   messageAtom,
   networkAtom,
   notificationAtom,
+  todoAtom,
+  todoFamily,
   totalpopupselector,
 } from "./atoms";
 
@@ -11,6 +13,11 @@ function App() {
   return (
     <RecoilRoot>
       <Mainapp />
+      <Todo id={1} />
+      <Todo id={2} />
+      <Todo id={2} />
+      <Todo id={2} />
+      <Todo id={3} />
     </RecoilRoot>
   );
 }
@@ -40,6 +47,15 @@ function Mainapp() {
       </button>
 
       <button>Avatar ({totalnotificationcount})</button>
+    </>
+  );
+}
+
+function Todo({ id }) {
+  const todos = useRecoilValue(todoFamily(id));
+  return (
+    <>
+      <h1> {todos.title}</h1>
     </>
   );
 }

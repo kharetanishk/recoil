@@ -1,4 +1,5 @@
-import { atom, selector } from "recoil";
+import { atom, atomFamily, selector } from "recoil";
+import { Todos } from "./data";
 
 export const networkAtom = atom({
   key: "networkatom",
@@ -29,5 +30,12 @@ export const totalpopupselector = selector({
     const messagecount = get(messageAtom);
 
     return networkcount + jobcount + notificationcount + messagecount;
+  },
+});
+
+export const todoFamily = atomFamily({
+  key: "todofamily",
+  default: (id) => {
+    return Todos.find((x) => x.id === id);
   },
 });
